@@ -8,13 +8,14 @@ spec:
   type: NodePort
   ports:
     - protocol: TCP
-      port : 3000
+      port : 80
       targetPort: 3000
       nodePort: 30001
   selector:
     app: frontend
 
 ---
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -23,7 +24,7 @@ spec:
   selector:
     matchLabels:
       app: frontend
-  replicas: 3
+  replicas: 1
   template:
     metadata:
       labels:
@@ -34,10 +35,5 @@ spec:
           image: bhomeshwork/frontend:latest
           ports:
             - containerPort: 3000
-          resources:
-            limits:
-              cpu: "1"
-              memory: "512Mi"
-            requests:
-              cpu: "0.5"
-              memory: "256Mi"
+          resources: {}
+           
