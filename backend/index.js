@@ -10,6 +10,7 @@ app.use(express.json());
 // Example API endpoint
 app.get('/api/data', (req, res) => {
     res.json({ message: 'Hello from Express!' });
+    console.log("working");
 });
 
 // Start server
