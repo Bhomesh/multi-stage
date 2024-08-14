@@ -38,16 +38,6 @@ pipeline {
             }
         }
         
-        stage('Push Docker Image') {
-            steps {
-                // Push the Docker image for frontend to a container registry
-                sh 'docker push frontend-image'
-                
-                // Push the Docker image for backend to a container registry
-                sh 'docker push backend-image'
-            }
-        }
-        
         stage('Deploy') {
             steps {
                 // Deploy the frontend and backend using Docker Compose
